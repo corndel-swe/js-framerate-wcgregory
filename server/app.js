@@ -12,12 +12,12 @@ app.use(express.json())
 // TODO: add your endpoints here
 app.get('/', async (req, res) => {
     const movies = await Movie.findAll()
-    res.render('movie_index', { movies })
+    res.render('movie/index', { movies })
 })
 
 app.get('/movie/:movieId', async (req, res) => {
     const movie = await Movie.findById(req.params.movieId)
-    res.render('movie_detail', { movie })
+    res.render('movie/detail', { movie })
 })
 
 export default app
