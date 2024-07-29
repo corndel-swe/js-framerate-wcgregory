@@ -1,7 +1,7 @@
 // test/d1e1.test.js
 import { strict as assert } from 'assert'
 import request from 'supertest'
-import app from '../exercises/d1e1.js'
+import app from '../../exercises/d1e1.js'
 
 describe('GET /success.jpg', function () {
   it('should return 200 OK and the image', async function () {
