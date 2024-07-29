@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Framerate | Movie Details</title>
+</head>
+
+<body>
+    
+  <h1><%= movie.title %>
+    <hgroup class="movie_details__info">
+      <span><%= movie.releaseDate %></span>
+      <span><%= movie.agerating %></span>
+      <span><%= movie.genre %></span>
+      <span><%= movie.runtime %></span>
+      <img src="<%= movie.imageURL %>"/>
+    </hgroup>
+  </h1>
+
+  <nav>
+    <span><a href="/">Home</a></span>
+  </nav>
+
+</body>
+</html>

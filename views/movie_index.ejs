@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Framerate | Movies</title>
+</head>
+<body>
+
+  <h1 class="center"><u>Movie List</u></h1>
+
+    <ul class="movie__index">
+      <% for (let movie of movies) { %>
+        <li class="movie__listing">
+          <img src="<%= movie.imageURL %>" style="width: 100%; height: 100%;" />
+          <a href="/movie/<%= movie.id %>" class="movie__listing_text">Movie details...</a>
+        </li>
+      <% } %>
+    </ul>
+    
+</body>
+</html>
