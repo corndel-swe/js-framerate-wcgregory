@@ -47,7 +47,7 @@ body {
 }
 
 .framerate__header a:hover {
-  background-color: rgb(192 128 128);
+  background-color: rgb(240, 240, 240);
   text-decoration: underline;
   text-decoration-color: rgb(0, 0, 238);
   -webkit-text-stroke-color: rgb(0, 0, 238);

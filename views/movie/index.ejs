@@ -6,9 +6,8 @@
   <% for (let movie of movies) { %>
   <li class="movie__listing">
     <img src="<%= movie.imageURL %>" />
-    <a href="/movie/<%= movie.id %>" class="movie__listing_text"
-      >Movie details...</a
-    >
+    <a href="/movie/<%= movie.id %>"
+      class="movie__listing_text">Movie details...</a>
   </li>
   <% } %>
 </ul>
