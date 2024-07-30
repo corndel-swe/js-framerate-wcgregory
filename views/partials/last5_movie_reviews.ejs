@@ -1,0 +1,14 @@
+    <article class="reviews">
+      <h5>Last 5 reviews:<br>
+        Reviewed | Comments | Rating (10)
+      </h5>
+      <section class="reviews__info">
+        <% for (let review of reviews) { %>
+          <div>
+            <%= review.createdAt %> <b>|</b>
+            <%= review.content %> <b>|</b> 
+            <%= review.rating %>
+          </div>
+        <% } %>
+      </section>
+    </article>

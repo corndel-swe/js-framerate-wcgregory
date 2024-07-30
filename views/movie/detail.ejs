@@ -3,7 +3,7 @@
 <h1><%= movie.title %></h1>
 <article class="movie">
   <div class="movie__img">
-    <img src="<%= movie.imageURL %>" />
+    <img src="<%= movie.imageURL %>" alt="The movie cover"/>
   </div>
   <div class="movie__info">
     <p>
@@ -25,17 +25,10 @@
   </div>
 </article>
 
+<%- include('../partials/last5_movie_reviews') %>
+
 <nav>
   <span><a href="/">Home</a></span>
 </nav>
 
 <%- include('../partials/footer') %>
-
-<!-- 
-      <p>
-        <div><b>Release Date:</b></div>
-        <div><b>Age Rating:</b><%= movie.ageRating %></div>
-        <div><b>Genre:</b><%= movie.genre %></div>
-        <div><b>Viewing Time:</b><%= movie.runtime %></div>
-      </p>
-  -->

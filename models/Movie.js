@@ -48,6 +48,13 @@ class Movie {
     const results = await db.raw(query, [id])
     return results
   }
+
+  static async findLastFiveReviews(id) {
+    const query = 'select reviews.*, movies.* from reviews ' +
+        'join movies on reviews.movieId = movies.id where reviews.movieId = ?;'
+    const results = await db.raw(query, [id])
+    return results
+  }
 }
 
 export default Movie

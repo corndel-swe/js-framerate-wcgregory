@@ -125,3 +125,29 @@ body {
   padding: 0;
   margin: 0;
 }
+
+.reviews {
+    padding: 0;
+}
+
+.reviews h5 {
+    padding: 0;
+    margin: 5px;
+    display: block;
+}
+
+.reviews__info {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 600px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.reviews__info div {
+    padding: 0;
+    margin: 0;
+    border: 1px gray solid;
+}
