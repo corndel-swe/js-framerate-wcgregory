@@ -1,14 +1,16 @@
 <%- include('../partials/header') %>
     
-  <h1><%= movie.title %></h1>
-  <img src="<%= movie.imageURL %>" style="width: 200px; height: 250px;"/>
+  <h1 style="color: maroon"><%= movie.title %></h1>
+  <!-- <img src="<%= movie.imageURL %>" style="width: 200px; height: 250px;"/> -->
     <section class="movie__details">
-      <span><b>Release Date:</b><br> <%= movie.releaseDate %></span>
-      <span>Age Rating:<br> <%= movie.ageRating %></span>
-      <span>Genre:<br> <%= movie.genre %></span>
-      <span>Viewing Time:<br> <%= movie.runtime %></span>
+      <img src="<%= movie.imageURL %>" style="width: 200px; height: 250px;"/>
+      <p>
+        <div><b>Release Date:</b><%= movie.releaseDate %></div>
+        <div><b>Age Rating:</b><%= movie.ageRating %></div>
+        <div><b>Genre:</b><%= movie.genre %></div>
+        <div><b>Viewing Time:</b><%= movie.runtime %></div>
+      </p>
     </section>
-
 
   <nav>
     <span><a href="/">Home</a></span>
