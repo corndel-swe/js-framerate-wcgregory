@@ -14,24 +14,25 @@ app.use(express.urlencoded({ extended: true }))
 app.get('/', async (req, res) => {
   const genres = Movie.allowedGenres
   const movies = await Movie.findAll(req.query.genre)
-  res.render('movie/index', { movies, genres, title: "Movie Titles" })
+  res.render('movie/index', { movies, genres, tabTitle: "Movie Titles" })
 })
 
 app.get('/movie/:movieId', async (req, res) => {
   const movie = await Movie.findById(req.params.movieId)
   const reviews = await Movie.findLastFiveReviews(req.params.movieId)
-  res.render('movie/detail', { movie, reviews, title: "Movie Details | " + movie.title})
+  //console.log(movie)
+  res.render('movie/detail', { movie, reviews, tabTitle: "Movie Details"})
 })
 
 app.get('/movie/:movieId/reviews', async (req, res) => {
   const movie = await Movie.findById(req.params.movieId)
   const reviews = await Movie.findReviews(req.params.movieId)
-  res.render('movie/reviews', { reviews, movie, title: movie.title + " | Reviews" })
+  res.render('movie/reviews', { movie, reviews, tabTitle: movie.title + " | Reviews" })
 })
 
 app.get('/reviews/:movieId/new', async (req, res) => {
   const movie = await Movie.findById(req.params.movieId)
-  res.render('reviews/new', { movie, title: movie.title + " | Create a review" })
+  res.render('reviews/new', { movie, tabTitle: movie.title + " | Create a review" })
 })
 
 app.post('/reviews/:movieId', async (req, res) => {

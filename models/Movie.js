@@ -49,11 +49,11 @@ class Movie {
     return results
   }
 
-  static async findLastFiveReviews(id) {
+  static async findLastFiveReviews(id, last=5) {
     const query = 'select reviews.*, movies.* from reviews ' +
         'join movies on reviews.movieId = movies.id where reviews.movieId = ?;'
     const results = await db.raw(query, [id])
-    return results
+    return results.slice(0, last)
   }
 
   static async createReview(movieId, comment, rating) {

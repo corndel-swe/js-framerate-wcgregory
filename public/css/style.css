@@ -127,13 +127,27 @@ body {
 }
 
 .reviews {
-    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 600px;
+    background-color: rgb(220, 220, 220);
+    border: 2px rgb(220, 220, 220) solid;
+    border-radius: 8px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .reviews h5 {
     padding: 0;
-    margin: 5px;
+    margin: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
     display: block;
+    border-bottom: 2px solid rgb(220, 220, 220);
+    background-color: rgb(240, 240, 240);
 }
 
 .reviews__info {
@@ -142,12 +156,34 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     width: 600px;
-    padding-top: 5px;
     padding-bottom: 5px;
 }
 
-.reviews__info div {
+.reviews__info article {
+    border: 1px solid rgb(220, 220, 220);
+}
+.reviews__info label {
+    font-weight: 700;
     padding: 0;
+    padding-right: 5px;
     margin: 0;
-    border: 1px gray solid;
+    font-size: medium;
+    display: block;
+  }
+
+.reviews__info div {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    padding-left: 5px;
+    margin: 0;
+    background-color: rgb(240, 240, 240);
+}
+
+.reviews__info nav {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5px;
 }

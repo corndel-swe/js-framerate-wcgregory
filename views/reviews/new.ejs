@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-  <form action="/reviews/" method="post">
+  <form action="/reviews/<%= movie.id %>" method="post">
 
     <label for="comment">Review:</label>
     <textarea id="comment" name="comment"></textarea>
