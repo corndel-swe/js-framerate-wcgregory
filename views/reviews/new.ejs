@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+
+  <form action="/reviews/" method="post">
+
+    <label for="comment">Review:</label>
+    <textarea id="comment" name="comment"></textarea>
+  
+    <label for="rating">Rating (10 is tops):</label>
+    <select id="rating" name="rating">
+      <% for (let index = 1; index <= 10; index++) { %>
+      <option value=<%= index %>><%= index %></option>
+      <% } %>
+    </select>
+  
+    <button type="submit">submit</button>
+  
+  </form>
+
+  <nav>
+    <a href="/">Home</a>
+  </nav>
+  
+  <%- include('../partials/footer') %>

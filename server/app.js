@@ -8,6 +8,7 @@ app.set('view engine', 'ejs')  // use ejs as the view engine
 
 app.use(express.static('public'))
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
 // TODO: add your endpoints here
 app.get('/', async (req, res) => {
@@ -28,10 +29,15 @@ app.get('/movie/:movieId/reviews', async (req, res) => {
   res.render('movie/reviews', { reviews, movie, title: movie.title + " | Reviews" })
 })
 
-app.get('/reviews/:movieId/new', (req, res) => {
-  res.render('movie/reviews', { title: "Create a Review" })
+app.get('/reviews/:movieId/new', async (req, res) => {
+  const movie = await Movie.findById(req.params.movieId)
+  res.render('reviews/new', { movie, title: movie.title + " | Create a review" })
 })
 
-app.post()
+app.post('/reviews/:movieId', async (req, res) => {
+  const { comment, rating } = req.body
+  await Movie.createReview(req.params.movieId, comment, rating)
+  res.redirect('/movie/:movieId')
+})
 
 export default app
