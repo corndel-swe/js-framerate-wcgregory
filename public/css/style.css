@@ -91,7 +91,6 @@ body {
     height: 300px;
     background-color: rgb(220, 220, 220);
     border-radius: 8px;
-    max-width: 600px;
     overflow: hidden;
 }
 
@@ -131,7 +130,9 @@ body {
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: flex-start;
-    width: 600px;
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
     background-color: rgb(220, 220, 220);
     border: 2px rgb(220, 220, 220) solid;
     border-radius: 8px;
@@ -145,8 +146,10 @@ body {
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 5px;
+    font-size: medium;
+    text-align: center;
     display: block;
-    border-bottom: 2px solid rgb(220, 220, 220);
+    border: 2px solid rgb(220, 220, 220);
     background-color: rgb(240, 240, 240);
 }
 
@@ -155,12 +158,12 @@ body {
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: flex-start;
-    width: 600px;
+    width: 100%;
     padding-bottom: 5px;
 }
 
 .reviews__info article {
-    border: 1px solid rgb(220, 220, 220);
+    border: 2px solid rgb(220, 220, 220);
 }
 .reviews__info label {
     font-weight: 700;
@@ -205,4 +208,23 @@ body {
     min-width: 170px;
     max-width: 300px;
     max-height: 300px;
+}
+
+.review__movie_title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px rgb(220, 220, 220) solid;
+    border-radius: 8px;
+}
+
+.review__movie_title h2 {
+    padding-left: 10px;
+}
+.review__movie_title img {
+    max-width: 12.5%;
 }

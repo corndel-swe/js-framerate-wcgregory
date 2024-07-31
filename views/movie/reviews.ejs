@@ -1,8 +1,34 @@
 <%- include('../partials/header') %>
 
-    <h1>Movie Reviews</h1>
-    <article class="reviews">
+    <div class="review__movie_title">
+      <img src="<%= movie.imageURL %>" alt="The movie cover"/>
+      <h2>Movie Reviews for <%= movie.title %></h2>
+    </div>
 
+    <article class="reviews">
+      
+      <section class="reviews__info">
+      <% for (let review of reviews) { %>
+        <article>
+          <div>
+            <label for="">Reviewed On:</label>
+            <%= review.createdAt %>
+          </div>
+          <div>
+            <label for="">Comments:</label>
+            <%= review.content %>
+          </div>
+          <div>
+            <label for="">Rating (out of 10):</label>
+            <%= review.rating %>/10
+          </div>
+        </article>
+      <% } %>
+      </section>
     </article>
+
+    <nav>
+      <span><a href="/movie/<%= movie.id %>">Back</a></span>
+    </nav>
 
 <%- include('../partials/footer') %>

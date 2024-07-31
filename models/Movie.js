@@ -53,7 +53,10 @@ class Movie {
     const query = 'select reviews.*, movies.* from reviews ' +
         'join movies on reviews.movieId = movies.id where reviews.movieId = ?;'
     const results = await db.raw(query, [id])
-    return results.slice(0, last)
+    const lastFive = results.sort((movieA, movieB) => 
+      movieA.releaseDate - movieB.releaseDate
+    )
+    return lastFive.reverse().slice(0, last)
   }
 
   static async createReview(movieId, comment, rating) {
