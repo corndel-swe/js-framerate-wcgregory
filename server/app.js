@@ -14,20 +14,19 @@ app.use(express.urlencoded({ extended: true }))
 app.get('/', async (req, res) => {
   const genres = Movie.allowedGenres
   const movies = await Movie.findAll(req.query.genre)
-  res.render('movie/index', { movies, genres, title: "Movie Titles" })
+  res.render('movies/index', { movies, genres, title: "Movie Titles" })
 })
 
-app.get('/movie/:movieId', async (req, res) => {
+app.get('/movies/:movieId', async (req, res) => {
   const movie = await Movie.findById(req.params.movieId)
   const reviews = await Movie.findLastFiveReviews(req.params.movieId)
-  //console.log(movie)
-  res.render('movie/detail', { movie, reviews, title: "Movie Details"})
+  res.render('movies/detail', { movie, reviews, title: "Movie Details"})
 })
 
-app.get('/movie/:movieId/reviews', async (req, res) => {
+app.get('/movies/:movieId/reviews', async (req, res) => {
   const movie = await Movie.findById(req.params.movieId)
   const reviews = await Movie.findReviews(req.params.movieId)
-  res.render('movie/reviews', { movie, reviews, title: movie.title + " | Reviews" })
+  res.render('movies/reviews', { movie, reviews, title: movie.title + " | Reviews" })
 })
 
 app.get('/reviews/:movieId/new', async (req, res) => {
@@ -38,7 +37,12 @@ app.get('/reviews/:movieId/new', async (req, res) => {
 app.post('/reviews/:movieId', async (req, res) => {
   const { comment, rating } = req.body
   await Movie.createReview(req.params.movieId, comment, rating)
-  res.redirect(`/movie/${req.params.movieId}`)
+  res.redirect(`/movies/${req.params.movieId}`)
+})
+
+app.get('/reviews', async (req, res) => {
+  const movies = await Movie.findAll(req.query.genre)
+  res.render('reviews/index', { movies, title: "Movie Reviews" })
 })
 
 export default app
