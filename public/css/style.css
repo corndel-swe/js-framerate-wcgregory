@@ -228,3 +228,14 @@ body {
 .review__movie_title img {
     max-width: 12.5%;
 }
+
+.review__index {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border: 1px rgb(220, 220, 220) solid;
+    border-radius: 8px;
+}
