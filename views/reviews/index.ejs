@@ -5,7 +5,7 @@
       <select name="movie" id="movie-select">
         <option value="">--Please choose a movie--</option>
         <% for (let movie of movies) { %>
-          <option value="/movies/<%= movie.id %>/reviews';">
+          <option value=<%= movie.id %>>
             <%= movie.title %>
           </option>
         <% } %>
