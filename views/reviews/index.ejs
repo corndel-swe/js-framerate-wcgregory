@@ -1,13 +1,14 @@
 <%- include('../partials/header') %>
 
     <form method="get" class="review__index">
-    <label for="movies">Select Movie for reviews:</label>
-      <select name="movies" id="movie-select">
+    <label for="movie">Select Movie for reviews:</label>
+      <select name="movie" id="movie-select">
         <option value="">--Please choose a movie--</option>
         <% for (let movie of movies) { %>
           <option value=<%= movie.id %>><%= movie.title %></option>
         <% } %>
       </select>
+
       <button type="submit">submit</button>
 
     </form>
