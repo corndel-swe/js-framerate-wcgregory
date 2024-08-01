@@ -2,7 +2,7 @@
 import { strict as assert } from 'assert'
 import request from 'supertest'
 import * as cheerio from 'cheerio'
-import app from '../exercises/d1e2.js'
+import app from '../../exercises/d1e2.js'
 
 describe('GET /d1e2', function () {
   it('should render the view with the message', async function () {

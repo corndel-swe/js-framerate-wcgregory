@@ -1,7 +1,7 @@
 import { strict as assert } from 'assert'
 import request from 'supertest'
 import * as cheerio from 'cheerio'
-import app from '../exercises/d2e3.js'
+import app from '../../exercises/d2e3.js'
 
 describe('GET /d2e3', function () {
   it('should render the form', async function () {

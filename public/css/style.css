@@ -1,0 +1,247 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(240, 240, 240);
+}
+
+.center {
+    text-align: center;
+}
+
+.framerate__footer {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    justify-content: center;
+    align-content: flex-end;
+    align-items: center;
+    background-color: rgb(220, 220, 220);
+}
+
+.framerate__header {
+    display: flex;
+    align-items: center;
+    background: rgb(220, 220, 220);
+}
+
+.framerate__header_image {
+    width: 125px;
+    height: 125px;
+}
+
+.framerate__header_navbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    font-family: 'Times New Roman', Times, serif;
+    width: 100%;
+}
+
+.framerate__header_navitem {
+    text-align: center;
+    width: 1/2;
+    height: 100%;
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+}
+
+.framerate__header a:hover {
+    background-color: rgb(240, 240, 240);
+    text-decoration: underline;
+    text-decoration-color: rgb(0, 0, 238);
+    -webkit-text-stroke-color: rgb(0, 0, 238);
+    -webkit-text-fill-color: rgb(0, 0, 238);
+}
+
+.movie__index {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 12px;
+}
+
+.movie__listing {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid grey;
+    width: 150px;
+    box-shadow: 5px 5px 15px rgb(192 128 128 / 1);
+}
+
+.movie__listing img {
+    width: 100%;
+    aspect-ratio: 2/3;
+}
+
+.movie__listing_text {
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: small;
+    font-style: italic;
+}
+
+.movie {
+    display: flex;
+    height: 300px;
+    background-color: rgb(220, 220, 220);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.movie__img {
+    width: 200px;
+}
+
+.movie__img img {
+    max-width: 100%;
+}
+
+.movie__info {
+    min-width: 300px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 1rem;
+}
+
+.movie__info label {
+    font-weight: 700;
+    padding: 0;
+    margin: 0;
+    font-size: small;
+    display: block;
+}
+
+.movie__info p {
+    padding: 0;
+    margin: 0;
+}
+
+.reviews {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: rgb(220, 220, 220);
+    border: 2px rgb(220, 220, 220) solid;
+    border-radius: 8px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.reviews h5 {
+    padding: 0;
+    margin: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    font-size: medium;
+    text-align: center;
+    display: block;
+    border: 2px solid rgb(220, 220, 220);
+    background-color: rgb(240, 240, 240);
+}
+
+.reviews__info {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    padding-bottom: 5px;
+}
+
+.reviews__info article {
+    border: 2px solid rgb(220, 220, 220);
+}
+.reviews__info label {
+    font-weight: 700;
+    padding: 0;
+    padding-right: 5px;
+    margin: 0;
+    font-size: medium;
+    display: block;
+  }
+
+.reviews__info div {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    padding-left: 5px;
+    margin: 0;
+    background-color: rgb(240, 240, 240);
+}
+
+.reviews__info nav {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+.reviews__form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.reviews__form label {
+    padding: 5px;
+}
+
+.reviews__form textarea {
+    min-width: 170px;
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.review__movie_title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px rgb(220, 220, 220) solid;
+    border-radius: 8px;
+}
+
+.review__movie_title h2 {
+    padding-left: 10px;
+}
+.review__movie_title img {
+    max-width: 12.5%;
+}
+
+.review__index {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border: 1px rgb(220, 220, 220) solid;
+    border-radius: 8px;
+}
+
+.review__index label {
+    padding-right: 5px;
+    padding-left: 5px;
+}

@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+
+    <form method="get" class="review__index">
+      <label for="movie">Select Movie for reviews:</label>
+        <select name="movie" id="movie-select">
+          <option value="">--Please select a movie--</option>
+          <% for (let movie of movies) { %>
+            <option value=<%= movie.id %>>
+              <%= movie.title %>
+            </option>
+          <% } %>
+        </select>
+
+      <button type="submit">filter</button>
+
+    </form>
+
+    <%- include('../partials/movie_review') %>
+
+  <nav>
+    <a href="/">Home</a>
+  </nav>
+  
+  <%- include('../partials/footer') %>

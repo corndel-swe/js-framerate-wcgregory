@@ -1,0 +1,31 @@
+    <article class="reviews">
+
+      <h5>Last 5 reviews</h5>
+
+      <section class="reviews__info">
+
+        <% for (let review of reviews) { %>
+          <article>
+            <div>
+              <label for="">Reviewed On:</label>
+              <%= review.createdAt %>
+            </div>
+            <div>
+              <label for="">Comments:</label>
+              <%= review.content %>
+            </div>
+            <div>
+              <label for="">Rating (out of 10):</label>
+              <%= review.rating %>/10
+            </div>
+          </article>
+        <% } %>
+
+        <nav>
+          <a href="/movies/<%= movie.id %>/reviews">View all reviews</a>
+          <a href="/reviews/<%= movie.id %>/new">Submit a review</a>
+        </nav>
+
+      </section>
+
+    </article>

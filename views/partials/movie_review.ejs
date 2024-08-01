@@ -1,0 +1,25 @@
+  <article class="reviews">
+    
+    <section class="reviews__info">
+    <% for (let review of reviews) { %>
+      <article>
+        <div>
+          <label for="">Movie:</label>
+          <%= review.movie_title %>
+        </div>
+        <div>
+          <label for="">Reviewed On:</label>
+          <%= review.createdAt %>
+        </div>
+        <div>
+          <label for="">Comments:</label>
+          <%= review.content %>
+        </div>
+        <div>
+          <label for="">Rating (out of 10):</label>
+          <%= review.rating %>/10
+        </div>
+      </article>
+    <% } %>
+    </section>
+  </article>

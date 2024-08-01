@@ -16,7 +16,7 @@ class Movie {
     'War'
   ]
 
-  static async findAll(genre) {
+  static async findAll(genre, ordered=false) {
     const query = [
       'select movies.*',
       'from movies',
@@ -30,8 +30,15 @@ class Movie {
       values.push('%' + genre + '%')
     }
 
-    query.push('group by movies.id')
-    query.push('order by movies.releaseDate desc')
+    query.push('GROUP BY movies.id')
+
+    if (ordered && ordered === "alpha") {
+      query.push('ORDER BY movies.title')
+    } else if (ordered && ordered === "date-asc") {
+      query.push('ORDER BY movies.releaseDate ASC')
+    } else {
+      query.push('ORDER BY movies.releaseDate DESC')
+    }
 
     const results = await db.raw(query.join(' '), values)
     return results
@@ -47,6 +54,41 @@ class Movie {
     const query = 'select * from reviews where movieId = ?'
     const results = await db.raw(query, [id])
     return results
+  }
+
+  static async findAllReviews(id) {
+    const query = [
+      'SELECT reviews.*, movies.*, movies.title AS movie_title',
+      'FROM reviews',
+      'JOIN movies ON reviews.movieId = movies.id'
+    ]
+    const values = []
+
+    if (id) {
+      query.push('WHERE movieId = ?')
+      values.push(id)
+    }
+
+    query.push('ORDER BY reviews.createdAt')
+
+    const results = await db.raw(query.join(' '), values)
+    return results
+  }
+
+  static async findLastFiveReviews(id, last=5) {
+    const query = 'SELECT reviews.*, movies.* FROM reviews ' +
+        'JOIN movies ON reviews.movieId = movies.id ' +
+        'WHERE reviews.movieId = ? ' +
+        'ORDER BY reviews.createdAt DESC'
+    const results = await db.raw(query, [id])
+    return results.slice(0, last)
+  }
+
+  static async createReview(movieId, comment, rating) {
+    const query = 'INSERT INTO reviews (movieId, content, rating) ' +
+        'VALUES (?, ?, ?) RETURNING *;'
+    const results = await db.raw(query, [movieId, comment, rating])
+    return results[0]
   }
 }
 

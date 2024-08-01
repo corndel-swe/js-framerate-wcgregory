@@ -1,0 +1,34 @@
+<%- include('../partials/header') %>
+
+<h1><%= movie.title %></h1>
+<article class="movie">
+  <div class="movie__img">
+    <img src="<%= movie.imageURL %>" alt="The movie cover"/>
+  </div>
+  <div class="movie__info">
+    <p>
+      <label for="">Release date</label>
+      <%= movie.releaseDate %>
+    </p>
+    <p>
+      <label for="">Rating</label>
+      <%= movie.ageRating %>
+    </p>
+    <p>
+      <label for="">Genre</label>
+      <%= movie.genre %>
+    </p>
+    <p>
+      <label for="">Runtime</label>
+      <%= movie.runtime %> minutes
+    </p>
+  </div>
+</article>
+
+<%- include('../partials/last5_movie_reviews') %>
+
+<nav>
+  <span><a href="/">Back</a></span>
+</nav>
+
+<%- include('../partials/footer') %>
