@@ -48,7 +48,7 @@ app.post('/reviews/:movieId', async (req, res) => {
 })
 
 app.get('/reviews', async (req, res) => {
-  const movies = await Movie.findAll(undefined, true)
+  const movies = await Movie.findAll(undefined, "alpha")
   const reviews = await Movie.findAllReviews(req.query.movie)
   res.render('reviews/index', { movies, reviews, title: "Movie Reviews" })
 })
