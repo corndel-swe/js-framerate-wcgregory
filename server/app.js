@@ -42,7 +42,8 @@ app.post('/reviews/:movieId', async (req, res) => {
 
 app.get('/reviews', async (req, res) => {
   const movies = await Movie.findAll(req.query.genre)
-  res.render('reviews/index', { movies, title: "Movie Reviews" })
+  const reviews = await Movie.findAllReviews(req.query.movie)
+  res.render('reviews/index', { movies, reviews, title: "Movie Reviews" })
 })
 
 export default app

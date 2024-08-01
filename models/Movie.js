@@ -49,6 +49,23 @@ class Movie {
     return results
   }
 
+  static async findAllReviews(id) {
+    const query = [
+      'SELECT reviews.*, movies.*, movies.title AS movie_title',
+      'FROM reviews',
+      'JOIN movies ON reviews.movieId = movies.id'
+    ]
+    const values = []
+
+    if (id) {
+      query.push('WHERE movieId = ?')
+      values.push(id)
+    }
+
+    const results = await db.raw(query.join(' '), values)
+    return results
+  }
+
   static async findLastFiveReviews(id, last=5) {
     const query = 'select reviews.*, movies.* from reviews ' +
         'join movies on reviews.movieId = movies.id where reviews.movieId = ?;'

@@ -1,19 +1,45 @@
 <%- include('../partials/header') %>
 
     <form method="get" class="review__index">
-    <label for="movie">Select Movie for reviews:</label>
-      <select name="movie" id="movie-select">
-        <option value="">--Please choose a movie--</option>
-        <% for (let movie of movies) { %>
-          <option value=<%= movie.id %>>
-            <%= movie.title %>
-          </option>
-        <% } %>
-      </select>
+      <label for="movie">Select Movie for reviews:</label>
+        <select name="movie" id="movie-select">
+          <option value="">--Please choose a movie--</option>
+          <% for (let movie of movies) { %>
+            <option value=<%= movie.id %>>
+              <%= movie.title %>
+            </option>
+          <% } %>
+        </select>
 
-      <button type="submit">submit</button>
+      <button type="submit">filter</button>
 
     </form>
+
+    <article class="reviews">
+      <section class="reviews__info">
+        <% for (let review of reviews) { %>
+          <article>
+            <div>
+              <label for="">Movie Title:</label>
+              <%= review.movie_title %>
+            </div>
+            <div>
+              <label for="">Reviewed On:</label>
+              <%= review.createdAt %>
+            </div>
+            <div>
+              <label for="">Comments:</label>
+              <%= review.content %>
+            </div>
+            <div>
+              <label for="">Rating (out of 10):</label>
+              <%= review.rating %>/10
+            </div>
+          </article>
+        <% } %>
+
+      </section>
+    </article>
 
   <nav>
     <a href="/">Home</a>
