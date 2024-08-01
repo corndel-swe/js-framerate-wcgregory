@@ -79,7 +79,7 @@ class Movie {
     const query = 'SELECT reviews.*, movies.* FROM reviews ' +
         'JOIN movies ON reviews.movieId = movies.id ' +
         'WHERE reviews.movieId = ? ' +
-        'ORDER BY reviews.createdAt ASC'
+        'ORDER BY reviews.createdAt DESC'
     const results = await db.raw(query, [id])
     return results.slice(0, last)
   }
