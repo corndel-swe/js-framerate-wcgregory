@@ -13,7 +13,14 @@ app.use(express.urlencoded({ extended: true }))
 // TODO: add your endpoints here
 app.get('/', async (req, res) => {
   const genres = Movie.allowedGenres
-  const movies = await Movie.findAll(req.query.genre)
+  let movies = {}
+
+  if (req.query.ordered) {
+    movies = await Movie.findAll(req.query.genre, req.query.ordered)
+  } else {
+    movies = await Movie.findAll(req.query.genre)
+  }
+
   res.render('movies/index', { movies, genres, title: "Movie Titles" })
 })
 
@@ -41,7 +48,7 @@ app.post('/reviews/:movieId', async (req, res) => {
 })
 
 app.get('/reviews', async (req, res) => {
-  const movies = await Movie.findAll(req.query.genre)
+  const movies = await Movie.findAll(undefined, true)
   const reviews = await Movie.findAllReviews(req.query.movie)
   res.render('reviews/index', { movies, reviews, title: "Movie Reviews" })
 })

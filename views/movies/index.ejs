@@ -1,5 +1,27 @@
 <%- include('../partials/header') %>
 
+<form method="get" class="review__index">
+  <label for="genre">Select Movie by Genre</label>
+    <select name="genre" id="genre-select">
+      <option value="">--Genre selector--</option>
+      <% for (let genre of genres) { %>
+        <option value=<%= genre %>>
+          <%= genre %>
+        </option>
+      <% } %>
+    </select>
+  
+  <label for="ordered">Order Movies by</label>
+    <select name="ordered" id="order-select">
+      <option value="alpha">--Alphabetically--</option>
+      <option value="" selected>--Oldest--</option>
+      <option value="date-asc">--Latest--</option>
+    </select>
+
+  <button type="submit">submit</button>
+
+</form>
+
 <h1 style="color: maroon" class="center"><u>Movie List</u></h1>
 
 <ul class="movie__index">

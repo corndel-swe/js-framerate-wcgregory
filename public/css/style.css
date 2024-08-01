@@ -232,10 +232,16 @@ body {
 .review__index {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 5px;
     margin-bottom: 5px;
     padding-top: 2%;
     padding-bottom: 2%;
     border: 1px rgb(220, 220, 220) solid;
     border-radius: 8px;
+}
+
+.review__index label {
+    padding-right: 5px;
+    padding-left: 5px;
 }
