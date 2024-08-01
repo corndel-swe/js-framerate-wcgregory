@@ -16,7 +16,7 @@ class Movie {
     'War'
   ]
 
-  static async findAll(genre) {
+  static async findAll(genre, alpha=false) {
     const query = [
       'select movies.*',
       'from movies',
@@ -31,7 +31,10 @@ class Movie {
     }
 
     query.push('group by movies.id')
-    query.push('order by movies.releaseDate desc')
+
+    if (alpha) {
+      query.push('order by movies.releaseDate desc')
+    } else query.push('order by movies.releaseDate desc')
 
     const results = await db.raw(query.join(' '), values)
     return results
@@ -62,18 +65,22 @@ class Movie {
       values.push(id)
     }
 
+    query.push('ORDER BY reviews.createdAt')
+
     const results = await db.raw(query.join(' '), values)
     return results
   }
 
   static async findLastFiveReviews(id, last=5) {
-    const query = 'select reviews.*, movies.* from reviews ' +
-        'join movies on reviews.movieId = movies.id where reviews.movieId = ?;'
+    const query = 'SELECT reviews.*, movies.* FROM reviews ' +
+        'JOIN movies ON reviews.movieId = movies.id ' +
+        'WHERE reviews.movieId = ? ' +
+        'ORDER BY reviews.createdAt ASC '
     const results = await db.raw(query, [id])
-    const lastFive = results.sort((movieA, movieB) => 
-      movieA.releaseDate - movieB.releaseDate
-    )
-    return lastFive.reverse().slice(0, last)
+    //const lastFive = results.sort((movieA, movieB) => 
+    //  movieA.releaseDate - movieB.releaseDate
+    //)
+    return results.slice(0, last)
   }
 
   static async createReview(movieId, comment, rating) {
